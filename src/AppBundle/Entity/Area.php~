@@ -1,0 +1,56 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Area
+ *
+ * @ORM\Table(name="area")
+ * @ORM\Entity
+ */
+class Area
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="picture_path", type="string", length=255, nullable=false)
+     */
+    private $picturePath;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="area_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Pokemon", inversedBy="idArea")
+     * @ORM\JoinTable(name="areatrainer",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_area", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_trainer", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $idTrainer;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idTrainer = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

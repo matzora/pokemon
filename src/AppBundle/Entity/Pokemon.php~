@@ -1,0 +1,129 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pokemon
+ *
+ * @ORM\Table(name="pokemon")
+ * @ORM\Entity
+ */
+class Pokemon
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=25, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="pv", type="integer", nullable=false)
+     */
+    private $pv;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="atk", type="integer", nullable=false)
+     */
+    private $atk;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="def", type="integer", nullable=false)
+     */
+    private $def;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="vit", type="integer", nullable=false)
+     */
+    private $vit;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="atk_spe", type="integer", nullable=false)
+     */
+    private $atkSpe;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="def_spe", type="integer", nullable=false)
+     */
+    private $defSpe;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="xp_factor", type="integer", nullable=false)
+     */
+    private $xpFactor;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="capture", type="integer", nullable=false)
+     */
+    private $capture;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="appear_chance", type="integer", nullable=false)
+     */
+    private $appearChance;
+
+    /**
+     * @var \AppBundle\Entity\Types
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Types")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
+     * })
+     */
+    private $id;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Attack", inversedBy="idPokemon")
+     * @ORM\JoinTable(name="pokemonattack",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_pokemon", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_attack", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $idAttack;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Area", mappedBy="idTrainer")
+     */
+    private $idArea;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idAttack = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idArea = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

@@ -1,0 +1,137 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pokemontrainer
+ *
+ * @ORM\Table(name="pokemontrainer", indexes={@ORM\Index(name="IDX_50CF93F71B88A150", columns={"id_trainer"})})
+ * @ORM\Entity
+ */
+class Pokemontrainer
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="level", type="integer", nullable=false)
+     */
+    private $level;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isdead", type="boolean", nullable=false)
+     */
+    private $isdead;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="actual_pv", type="integer", nullable=false)
+     */
+    private $actualPv;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="actual_atk", type="integer", nullable=false)
+     */
+    private $actualAtk;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="actual_def", type="integer", nullable=false)
+     */
+    private $actualDef;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="actual_vit", type="integer", nullable=false)
+     */
+    private $actualVit;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="actual_atk_spe", type="integer", nullable=false)
+     */
+    private $actualAtkSpe;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="actual_def_spe", type="integer", nullable=false)
+     */
+    private $actualDefSpe;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="battle_pv", type="integer", nullable=false)
+     */
+    private $battlePv;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="battle_atk", type="integer", nullable=false)
+     */
+    private $battleAtk;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="battle_def", type="integer", nullable=false)
+     */
+    private $battleDef;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="battle_vit", type="integer", nullable=false)
+     */
+    private $battleVit;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="battle_atk_spe", type="integer", nullable=false)
+     */
+    private $battleAtkSpe;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="battle_def_spe", type="integer", nullable=false)
+     */
+    private $battleDefSpe;
+
+    /**
+     * @var \AppBundle\Entity\Pokemon
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Pokemon")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_pokemon", referencedColumnName="id")
+     * })
+     */
+    private $idPokemon;
+
+    /**
+     * @var \AppBundle\Entity\Trainer
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Trainer")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_trainer", referencedColumnName="id")
+     * })
+     */
+    private $idTrainer;
+
+
+}
+

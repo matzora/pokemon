@@ -1,0 +1,76 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Attack
+ *
+ * @ORM\Table(name="attack")
+ * @ORM\Entity
+ */
+class Attack
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=12, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="physical", type="boolean", nullable=false)
+     */
+    private $physical;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="power", type="smallint", nullable=false)
+     */
+    private $power;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="accuracy", type="integer", nullable=false)
+     */
+    private $accuracy;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_type", type="integer", nullable=false)
+     */
+    private $idType;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="smallint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="attack_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Pokemon", mappedBy="idAttack")
+     */
+    private $idPokemon;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idPokemon = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+
