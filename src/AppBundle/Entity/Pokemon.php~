@@ -83,47 +83,15 @@ class Pokemon
     private $appearChance;
 
     /**
-     * @var \AppBundle\Entity\Types
+     * @var integer
      *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Types")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
-     * })
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="pokemon_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Attack", inversedBy="idPokemon")
-     * @ORM\JoinTable(name="pokemonattack",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_pokemon", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_attack", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $idAttack;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Area", mappedBy="idTrainer")
-     */
-    private $idArea;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->idAttack = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idArea = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
 }
 

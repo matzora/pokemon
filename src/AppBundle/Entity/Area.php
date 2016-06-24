@@ -15,6 +15,13 @@ class Area
     /**
      * @var string
      *
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="picture_path", type="string", length=255, nullable=false)
      */
     private $picturePath;
@@ -29,29 +36,31 @@ class Area
      */
     private $id;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Pokemon", inversedBy="idArea")
-     * @ORM\JoinTable(name="areatrainer",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_area", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_trainer", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $idTrainer;
+
 
     /**
-     * Constructor
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Area
      */
-    public function __construct()
+    public function setName($name)
     {
-        $this->idTrainer = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->name = $name;
+
+        return $this;
     }
 
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 
     /**
      * Set picturePath
@@ -85,39 +94,5 @@ class Area
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Add idTrainer
-     *
-     * @param \AppBundle\Entity\Pokemon $idTrainer
-     *
-     * @return Area
-     */
-    public function addIdTrainer(\AppBundle\Entity\Pokemon $idTrainer)
-    {
-        $this->idTrainer[] = $idTrainer;
-
-        return $this;
-    }
-
-    /**
-     * Remove idTrainer
-     *
-     * @param \AppBundle\Entity\Pokemon $idTrainer
-     */
-    public function removeIdTrainer(\AppBundle\Entity\Pokemon $idTrainer)
-    {
-        $this->idTrainer->removeElement($idTrainer);
-    }
-
-    /**
-     * Get idTrainer
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIdTrainer()
-    {
-        return $this->idTrainer;
     }
 }

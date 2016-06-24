@@ -9,3 +9,6 @@ pokemon_api_routes:
     type:     annotation
     defaults: {_format: json}
     prefix:   /api/routes
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

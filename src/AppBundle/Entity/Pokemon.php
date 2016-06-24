@@ -83,47 +83,15 @@ class Pokemon
     private $appearChance;
 
     /**
-     * @var \AppBundle\Entity\Types
+     * @var integer
      *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Types")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
-     * })
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="pokemon_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Attack", inversedBy="idPokemon")
-     * @ORM\JoinTable(name="pokemonattack",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_pokemon", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_attack", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $idAttack;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Area", mappedBy="idTrainer")
-     */
-    private $idArea;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->idAttack = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idArea = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
 
     /**
@@ -367,94 +335,12 @@ class Pokemon
     }
 
     /**
-     * Set id
-     *
-     * @param \AppBundle\Entity\Types $id
-     *
-     * @return Pokemon
-     */
-    public function setId(\AppBundle\Entity\Types $id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
      * Get id
      *
-     * @return \AppBundle\Entity\Types
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Add idAttack
-     *
-     * @param \AppBundle\Entity\Attack $idAttack
-     *
-     * @return Pokemon
-     */
-    public function addIdAttack(\AppBundle\Entity\Attack $idAttack)
-    {
-        $this->idAttack[] = $idAttack;
-
-        return $this;
-    }
-
-    /**
-     * Remove idAttack
-     *
-     * @param \AppBundle\Entity\Attack $idAttack
-     */
-    public function removeIdAttack(\AppBundle\Entity\Attack $idAttack)
-    {
-        $this->idAttack->removeElement($idAttack);
-    }
-
-    /**
-     * Get idAttack
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIdAttack()
-    {
-        return $this->idAttack;
-    }
-
-    /**
-     * Add idArea
-     *
-     * @param \AppBundle\Entity\Area $idArea
-     *
-     * @return Pokemon
-     */
-    public function addIdArea(\AppBundle\Entity\Area $idArea)
-    {
-        $this->idArea[] = $idArea;
-
-        return $this;
-    }
-
-    /**
-     * Remove idArea
-     *
-     * @param \AppBundle\Entity\Area $idArea
-     */
-    public function removeIdArea(\AppBundle\Entity\Area $idArea)
-    {
-        $this->idArea->removeElement($idArea);
-    }
-
-    /**
-     * Get idArea
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIdArea()
-    {
-        return $this->idArea;
     }
 }

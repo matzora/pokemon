@@ -13,11 +13,19 @@ use Doctrine\ORM\Mapping as ORM;
 class Typematrix
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="typematrix_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
      * @var \AppBundle\Entity\Types
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Types")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Types")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_type1", referencedColumnName="id")
      * })
@@ -27,9 +35,7 @@ class Typematrix
     /**
      * @var \AppBundle\Entity\Types
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Types")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Types")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_type2", referencedColumnName="id")
      * })
@@ -49,13 +55,23 @@ class Typematrix
 
 
     /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * Set idType1
      *
      * @param \AppBundle\Entity\Types $idType1
      *
      * @return Typematrix
      */
-    public function setIdType1(\AppBundle\Entity\Types $idType1)
+    public function setIdType1(\AppBundle\Entity\Types $idType1 = null)
     {
         $this->idType1 = $idType1;
 
@@ -79,7 +95,7 @@ class Typematrix
      *
      * @return Typematrix
      */
-    public function setIdType2(\AppBundle\Entity\Types $idType2)
+    public function setIdType2(\AppBundle\Entity\Types $idType2 = null)
     {
         $this->idType2 = $idType2;
 

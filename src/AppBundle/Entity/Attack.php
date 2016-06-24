@@ -29,7 +29,7 @@ class Attack
     /**
      * @var integer
      *
-     * @ORM\Column(name="power", type="smallint", nullable=false)
+     * @ORM\Column(name="power", type="integer", nullable=false)
      */
     private $power;
 
@@ -50,27 +50,13 @@ class Attack
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="smallint")
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="attack_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Pokemon", mappedBy="idAttack")
-     */
-    private $idPokemon;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->idPokemon = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
 
     /**
@@ -201,39 +187,5 @@ class Attack
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Add idPokemon
-     *
-     * @param \AppBundle\Entity\Pokemon $idPokemon
-     *
-     * @return Attack
-     */
-    public function addIdPokemon(\AppBundle\Entity\Pokemon $idPokemon)
-    {
-        $this->idPokemon[] = $idPokemon;
-
-        return $this;
-    }
-
-    /**
-     * Remove idPokemon
-     *
-     * @param \AppBundle\Entity\Pokemon $idPokemon
-     */
-    public function removeIdPokemon(\AppBundle\Entity\Pokemon $idPokemon)
-    {
-        $this->idPokemon->removeElement($idPokemon);
-    }
-
-    /**
-     * Get idPokemon
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIdPokemon()
-    {
-        return $this->idPokemon;
     }
 }

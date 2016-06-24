@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Pokemontrainer
  *
- * @ORM\Table(name="pokemontrainer", indexes={@ORM\Index(name="IDX_50CF93F71B88A150", columns={"id_trainer"})})
+ * @ORM\Table(name="pokemontrainer", indexes={@ORM\Index(name="IDX_50CF93F7BC413983", columns={"id_pokemon"}), @ORM\Index(name="IDX_50CF93F71B88A150", columns={"id_trainer"})})
  * @ORM\Entity
  */
 class Pokemontrainer
@@ -111,11 +111,19 @@ class Pokemontrainer
     private $battleDefSpe;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="pokemontrainer_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
      * @var \AppBundle\Entity\Pokemon
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Pokemon")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Pokemon")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_pokemon", referencedColumnName="id")
      * })
@@ -471,13 +479,23 @@ class Pokemontrainer
     }
 
     /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * Set idPokemon
      *
      * @param \AppBundle\Entity\Pokemon $idPokemon
      *
      * @return Pokemontrainer
      */
-    public function setIdPokemon(\AppBundle\Entity\Pokemon $idPokemon)
+    public function setIdPokemon(\AppBundle\Entity\Pokemon $idPokemon = null)
     {
         $this->idPokemon = $idPokemon;
 

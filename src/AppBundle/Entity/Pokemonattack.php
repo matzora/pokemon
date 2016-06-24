@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Pokemontype
+ * Pokemonattack
  *
- * @ORM\Table(name="pokemontype", indexes={@ORM\Index(name="IDX_6B2FDCF7BC413983", columns={"id_pokemon"}), @ORM\Index(name="IDX_6B2FDCF77FE4B2B", columns={"id_type"})})
+ * @ORM\Table(name="pokemonattack", indexes={@ORM\Index(name="IDX_221178F3BC413983", columns={"id_pokemon"}), @ORM\Index(name="IDX_221178F361F798D6", columns={"id_attack"})})
  * @ORM\Entity
  */
-class Pokemontype
+class Pokemonattack
 {
     /**
      * @var integer
@@ -18,7 +18,7 @@ class Pokemontype
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="pokemontype_id_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="pokemonattack_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
@@ -33,14 +33,14 @@ class Pokemontype
     private $idPokemon;
 
     /**
-     * @var \AppBundle\Entity\Types
+     * @var \AppBundle\Entity\Attack
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Types")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Attack")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_type", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="id_attack", referencedColumnName="id")
      * })
      */
-    private $idType;
+    private $idAttack;
 
 
 
@@ -59,7 +59,7 @@ class Pokemontype
      *
      * @param \AppBundle\Entity\Pokemon $idPokemon
      *
-     * @return Pokemontype
+     * @return Pokemonattack
      */
     public function setIdPokemon(\AppBundle\Entity\Pokemon $idPokemon = null)
     {
@@ -79,26 +79,26 @@ class Pokemontype
     }
 
     /**
-     * Set idType
+     * Set idAttack
      *
-     * @param \AppBundle\Entity\Types $idType
+     * @param \AppBundle\Entity\Attack $idAttack
      *
-     * @return Pokemontype
+     * @return Pokemonattack
      */
-    public function setIdType(\AppBundle\Entity\Types $idType = null)
+    public function setIdAttack(\AppBundle\Entity\Attack $idAttack = null)
     {
-        $this->idType = $idType;
+        $this->idAttack = $idAttack;
 
         return $this;
     }
 
     /**
-     * Get idType
+     * Get idAttack
      *
-     * @return \AppBundle\Entity\Types
+     * @return \AppBundle\Entity\Attack
      */
-    public function getIdType()
+    public function getIdAttack()
     {
-        return $this->idType;
+        return $this->idAttack;
     }
 }
