@@ -13,6 +13,58 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class UserController extends FOSRestController
 {
     /**
+     * @Route("/login")
+     *
+     * @Method("GET")
+     *
+     *
+     * @return View
+     */
+    public function login(Request $request): View
+    {
+        $requestData = $request->request->get('security_login');
+
+        $username = $requestData['username'];
+        $plainPassword = $requestData['plainPassword'];
+        $existsUser = $this->get('fos_user.user_manager')->findUserByUsernameOrEmail($username);
+        $factory = $this->get('security.encoder_factory');
+
+        if (!$existsUser instanceof User) {
+            $statusCode = 404;
+            $content = ['response' => 'User for username = ' . $username . ' is not found.'];
+        } else {
+            $encoder = $factory->getEncoder($existsUser);
+            if (!$encoder->isPasswordValid($existsUser->getPassword(), $plainPassword, $existsUser->getSalt())) {
+                $statusCode = 403;
+                $content = ['response' => 'Password : ' . $plainPassword . ' mismatch the correct one.'];
+            } else {
+                $statusCode = 200;
+                $content = ['response' => 'Successfully logged in'];
+                $this->get('fos_user.security.login_manager')->logInUser('main', $existsUser);
+            }
+        }
+        return $this->view($content, $statusCode)->setFormat('json');
+    }
+
+    /**
+     * @Route("/login")
+     *
+     * @Method("POST")
+     *
+     *
+     * @return View
+     */
+    public function loginPost(Request $request): View
+    {
+        $params = array();
+        $content = $this->get("request")->getContent();
+        if (!empty($content))
+        {
+            $params = json_decode($content, true); // 2nd param to get as array
+        }
+    }
+
+    /**
      * @Route("/")
      *
      * @Method("GET")

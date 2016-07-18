@@ -13,13 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Trainer
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=25, nullable=false)
-     */
-    private $name;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -29,7 +22,12 @@ class Trainer
      */
     private $id;
 
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=25, nullable=false)
+     */
+    private $name;
 
     /**
      * Set name

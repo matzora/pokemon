@@ -93,5 +93,254 @@ class Pokemon
     private $id;
 
 
-}
 
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Pokemon
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set pv
+     *
+     * @param integer $pv
+     *
+     * @return Pokemon
+     */
+    public function setPv($pv)
+    {
+        $this->pv = $pv;
+
+        return $this;
+    }
+
+    /**
+     * Get pv
+     *
+     * @return integer
+     */
+    public function getPv()
+    {
+        return $this->pv;
+    }
+
+    /**
+     * Set atk
+     *
+     * @param integer $atk
+     *
+     * @return Pokemon
+     */
+    public function setAtk($atk)
+    {
+        $this->atk = $atk;
+
+        return $this;
+    }
+
+    /**
+     * Get atk
+     *
+     * @return integer
+     */
+    public function getAtk()
+    {
+        return $this->atk;
+    }
+
+    /**
+     * Set def
+     *
+     * @param integer $def
+     *
+     * @return Pokemon
+     */
+    public function setDef($def)
+    {
+        $this->def = $def;
+
+        return $this;
+    }
+
+    /**
+     * Get def
+     *
+     * @return integer
+     */
+    public function getDef()
+    {
+        return $this->def;
+    }
+
+    /**
+     * Set vit
+     *
+     * @param integer $vit
+     *
+     * @return Pokemon
+     */
+    public function setVit($vit)
+    {
+        $this->vit = $vit;
+
+        return $this;
+    }
+
+    /**
+     * Get vit
+     *
+     * @return integer
+     */
+    public function getVit()
+    {
+        return $this->vit;
+    }
+
+    /**
+     * Set atkSpe
+     *
+     * @param integer $atkSpe
+     *
+     * @return Pokemon
+     */
+    public function setAtkSpe($atkSpe)
+    {
+        $this->atkSpe = $atkSpe;
+
+        return $this;
+    }
+
+    /**
+     * Get atkSpe
+     *
+     * @return integer
+     */
+    public function getAtkSpe()
+    {
+        return $this->atkSpe;
+    }
+
+    /**
+     * Set defSpe
+     *
+     * @param integer $defSpe
+     *
+     * @return Pokemon
+     */
+    public function setDefSpe($defSpe)
+    {
+        $this->defSpe = $defSpe;
+
+        return $this;
+    }
+
+    /**
+     * Get defSpe
+     *
+     * @return integer
+     */
+    public function getDefSpe()
+    {
+        return $this->defSpe;
+    }
+
+    /**
+     * Set xpFactor
+     *
+     * @param integer $xpFactor
+     *
+     * @return Pokemon
+     */
+    public function setXpFactor($xpFactor)
+    {
+        $this->xpFactor = $xpFactor;
+
+        return $this;
+    }
+
+    /**
+     * Get xpFactor
+     *
+     * @return integer
+     */
+    public function getXpFactor()
+    {
+        return $this->xpFactor;
+    }
+
+    /**
+     * Set capture
+     *
+     * @param integer $capture
+     *
+     * @return Pokemon
+     */
+    public function setCapture($capture)
+    {
+        $this->capture = $capture;
+
+        return $this;
+    }
+
+    /**
+     * Get capture
+     *
+     * @return integer
+     */
+    public function getCapture()
+    {
+        return $this->capture;
+    }
+
+    /**
+     * Set appearChance
+     *
+     * @param integer $appearChance
+     *
+     * @return Pokemon
+     */
+    public function setAppearChance($appearChance)
+    {
+        $this->appearChance = $appearChance;
+
+        return $this;
+    }
+
+    /**
+     * Get appearChance
+     *
+     * @return integer
+     */
+    public function getAppearChance()
+    {
+        return $this->appearChance;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

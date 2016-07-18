@@ -3,6 +3,7 @@
 namespace AppBundle\DataFixtures;
 
 use AppBundle\Entity\User;
+use AppBundle\Entity\Trainer;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -35,13 +36,17 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface, Ordered
             $user = new User();
             //Required by fos_user
             $user->setUsername('user' . $i);
-            $user->setPlainPassword('Abcd1234');
+            $user->setPlainPassword('Azerty123');
             $user->setEmail('user' . $i . '@pokemon.fr');
             $user->setEnabled(true);
 
-            $user->setName("Rambo 3");
+            $trainer = new Trainer();
+            $trainer->setName('user' . $i);
 
+            $manager->persist($trainer);
+            $manager->flush();
 
+            $user->setTrainer($trainer);
 
             // On met à jour notre user (on l'enregistre en bdd quoi)
             $userManager->updateUser($user);

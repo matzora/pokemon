@@ -43,5 +43,62 @@ class Areatrainer
     private $idTrainer;
 
 
-}
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idArea
+     *
+     * @param \AppBundle\Entity\Area $idArea
+     *
+     * @return Areatrainer
+     */
+    public function setIdArea(\AppBundle\Entity\Area $idArea = null)
+    {
+        $this->idArea = $idArea;
+
+        return $this;
+    }
+
+    /**
+     * Get idArea
+     *
+     * @return \AppBundle\Entity\Area
+     */
+    public function getIdArea()
+    {
+        return $this->idArea;
+    }
+
+    /**
+     * Set idTrainer
+     *
+     * @param \AppBundle\Entity\Trainer $idTrainer
+     *
+     * @return Areatrainer
+     */
+    public function setIdTrainer(\AppBundle\Entity\Trainer $idTrainer = null)
+    {
+        $this->idTrainer = $idTrainer;
+
+        return $this;
+    }
+
+    /**
+     * Get idTrainer
+     *
+     * @return \AppBundle\Entity\Trainer
+     */
+    public function getIdTrainer()
+    {
+        return $this->idTrainer;
+    }
+}

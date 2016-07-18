@@ -53,5 +53,86 @@ class Typematrix
     private $idMultiplicator;
 
 
-}
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idType1
+     *
+     * @param \AppBundle\Entity\Types $idType1
+     *
+     * @return Typematrix
+     */
+    public function setIdType1(\AppBundle\Entity\Types $idType1 = null)
+    {
+        $this->idType1 = $idType1;
+
+        return $this;
+    }
+
+    /**
+     * Get idType1
+     *
+     * @return \AppBundle\Entity\Types
+     */
+    public function getIdType1()
+    {
+        return $this->idType1;
+    }
+
+    /**
+     * Set idType2
+     *
+     * @param \AppBundle\Entity\Types $idType2
+     *
+     * @return Typematrix
+     */
+    public function setIdType2(\AppBundle\Entity\Types $idType2 = null)
+    {
+        $this->idType2 = $idType2;
+
+        return $this;
+    }
+
+    /**
+     * Get idType2
+     *
+     * @return \AppBundle\Entity\Types
+     */
+    public function getIdType2()
+    {
+        return $this->idType2;
+    }
+
+    /**
+     * Set idMultiplicator
+     *
+     * @param \AppBundle\Entity\Multiplicator $idMultiplicator
+     *
+     * @return Typematrix
+     */
+    public function setIdMultiplicator(\AppBundle\Entity\Multiplicator $idMultiplicator = null)
+    {
+        $this->idMultiplicator = $idMultiplicator;
+
+        return $this;
+    }
+
+    /**
+     * Get idMultiplicator
+     *
+     * @return \AppBundle\Entity\Multiplicator
+     */
+    public function getIdMultiplicator()
+    {
+        return $this->idMultiplicator;
+    }
+}

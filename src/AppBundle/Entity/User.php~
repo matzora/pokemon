@@ -34,28 +34,4 @@ class User extends BaseUser
      * })
      */
     protected $trainer;
-
-    /**
-     * Set trainer
-     *
-     * @param \AppBundle\Entity\Trainer $trainer
-     *
-     * @return User
-     */
-    public function setTrainer(\AppBundle\Entity\Trainer $trainer = null)
-    {
-        $this->trainer = $trainer;
-
-        return $this;
-    }
-
-    /**
-     * Get trainer
-     *
-     * @return \AppBundle\Entity\Trainer
-     */
-    public function getTrainer()
-    {
-        return $this->trainer;
-    }
 }

@@ -43,5 +43,62 @@ class Pokemonattack
     private $idAttack;
 
 
-}
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idPokemon
+     *
+     * @param \AppBundle\Entity\Pokemon $idPokemon
+     *
+     * @return Pokemonattack
+     */
+    public function setIdPokemon(\AppBundle\Entity\Pokemon $idPokemon = null)
+    {
+        $this->idPokemon = $idPokemon;
+
+        return $this;
+    }
+
+    /**
+     * Get idPokemon
+     *
+     * @return \AppBundle\Entity\Pokemon
+     */
+    public function getIdPokemon()
+    {
+        return $this->idPokemon;
+    }
+
+    /**
+     * Set idAttack
+     *
+     * @param \AppBundle\Entity\Attack $idAttack
+     *
+     * @return Pokemonattack
+     */
+    public function setIdAttack(\AppBundle\Entity\Attack $idAttack = null)
+    {
+        $this->idAttack = $idAttack;
+
+        return $this;
+    }
+
+    /**
+     * Get idAttack
+     *
+     * @return \AppBundle\Entity\Attack
+     */
+    public function getIdAttack()
+    {
+        return $this->idAttack;
+    }
+}

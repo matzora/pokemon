@@ -43,5 +43,62 @@ class Pokemontype
     private $idType;
 
 
-}
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idPokemon
+     *
+     * @param \AppBundle\Entity\Pokemon $idPokemon
+     *
+     * @return Pokemontype
+     */
+    public function setIdPokemon(\AppBundle\Entity\Pokemon $idPokemon = null)
+    {
+        $this->idPokemon = $idPokemon;
+
+        return $this;
+    }
+
+    /**
+     * Get idPokemon
+     *
+     * @return \AppBundle\Entity\Pokemon
+     */
+    public function getIdPokemon()
+    {
+        return $this->idPokemon;
+    }
+
+    /**
+     * Set idType
+     *
+     * @param \AppBundle\Entity\Types $idType
+     *
+     * @return Pokemontype
+     */
+    public function setIdType(\AppBundle\Entity\Types $idType = null)
+    {
+        $this->idType = $idType;
+
+        return $this;
+    }
+
+    /**
+     * Get idType
+     *
+     * @return \AppBundle\Entity\Types
+     */
+    public function getIdType()
+    {
+        return $this->idType;
+    }
+}
