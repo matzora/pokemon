@@ -1,14 +1,20 @@
+pokemon_api_routes:
+    resource: "@AppBundle/Controller/APIController.php"
+    type:     annotation
+    defaults: {_format: json}
+    prefix:   /api/routes
+
 pokemon_api_user:
     resource: "@AppBundle/Controller/UserController.php"
     type:     annotation
     defaults: {_format: json}
     prefix:   /api/user
 
-pokemon_api_routes:
-    resource: "@AppBundle/Controller/APIController.php"
+pokemon_api_pokemon:
+    resource: "@AppBundle/Controller/PokemonController.php"
     type:     annotation
     defaults: {_format: json}
-    prefix:   /api/routes
+    prefix:   /api/pokemon
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

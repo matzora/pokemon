@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\API;
+namespace AppBundle\Controller;
 
 use AppBundle\Entity\PokemonTrainer;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -14,12 +14,19 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PokemonController extends FOSRestController
 {
+    /**
+     * @Route("/")
+     *
+     * @Method("GET")
+     *
+     * @return View
+     */
     public function getAllPokemons(): View
     {
         $pokemons = $this->getDoctrine()->getRepository('AppBundle:Pokemon')->findAll();
 
         if (count($pokemons) == 0) {
-            throw new NotFoundHttpException('Anomaly not found');
+            throw new NotFoundHttpException('Pokemons not found');
         } else {
             $view = $this->view($pokemons, 200)->setFormat('json');
         }
