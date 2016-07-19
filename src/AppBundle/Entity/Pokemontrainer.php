@@ -115,7 +115,7 @@ class Pokemontrainer
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\SequenceGenerator(sequenceName="pokemontrainer_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
