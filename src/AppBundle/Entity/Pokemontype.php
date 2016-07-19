@@ -17,7 +17,7 @@ class Pokemontype
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      * @ORM\SequenceGenerator(sequenceName="pokemontype_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
