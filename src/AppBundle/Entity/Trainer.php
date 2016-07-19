@@ -18,7 +18,6 @@ class Trainer
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\SequenceGenerator(sequenceName="trainer_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
