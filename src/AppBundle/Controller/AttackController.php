@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Pokemon;
+use AppBundle\Entity\Attack;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\View\View;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class PokemonController extends FOSRestController
+class AttackController extends FOSRestController
 {
     /**
      * @Route("/")
@@ -23,9 +23,9 @@ class PokemonController extends FOSRestController
      */
     public function getAllPokemons(): View
     {
-        $pokemons = $this->getDoctrine()->getRepository('AppBundle:Pokemon')->findAll();
+        $attack = $this->getDoctrine()->getRepository('AppBundle:Attack')->findAll();
 
-        $view = $this->view($pokemons, 200)->setFormat('json');
+        $view = $this->view($attack, 200)->setFormat('json');
 
         return $view;
     }

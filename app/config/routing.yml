@@ -16,5 +16,17 @@ pokemon_api_pokemon:
     defaults: {_format: json}
     prefix:   /api/pokemon
 
+pokemon_api_attack:
+    resource: "@AppBundle/Controller/AttackController.php"
+    type:     annotation
+    defaults: {_format: json}
+    prefix:   /api/attack
+
+pokemon_api_type:
+    resource: "@AppBundle/Controller/TypeController.php"
+    type:     annotation
+    defaults: {_format: json}
+    prefix:   /api/type
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
