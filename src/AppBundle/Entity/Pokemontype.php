@@ -32,7 +32,7 @@ class Pokemontype
     private $idPokemon;
 
     /**
-     * @var \AppBundle\Entity\Types
+     * @var \AppBundle\Entity\Type
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Type")
      * @ORM\JoinColumns({
@@ -80,11 +80,11 @@ class Pokemontype
     /**
      * Set idType
      *
-     * @param \AppBundle\Entity\Types $idType
+     * @param \AppBundle\Entity\Type $idType
      *
      * @return Pokemontype
      */
-    public function setIdType(\AppBundle\Entity\Types $idType = null)
+    public function setIdType(\AppBundle\Entity\Type $idType = null)
     {
         $this->idType = $idType;
 
@@ -94,7 +94,7 @@ class Pokemontype
     /**
      * Get idType
      *
-     * @return \AppBundle\Entity\Types
+     * @return \AppBundle\Entity\Type
      */
     public function getIdType()
     {

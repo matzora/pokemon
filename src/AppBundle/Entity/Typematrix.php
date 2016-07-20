@@ -22,9 +22,9 @@ class Typematrix
     private $id;
 
     /**
-     * @var \AppBundle\Entity\Types
+     * @var \AppBundle\Entity\Type
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Types")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Type")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_type1", referencedColumnName="id")
      * })
@@ -32,9 +32,9 @@ class Typematrix
     private $idType1;
 
     /**
-     * @var \AppBundle\Entity\Types
+     * @var \AppBundle\Entity\Type
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Types")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Type")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_type2", referencedColumnName="id")
      * })
@@ -66,11 +66,11 @@ class Typematrix
     /**
      * Set idType1
      *
-     * @param \AppBundle\Entity\Types $idType1
+     * @param \AppBundle\Entity\Type $idType1
      *
      * @return Typematrix
      */
-    public function setIdType1(\AppBundle\Entity\Types $idType1 = null)
+    public function setIdType1(\AppBundle\Entity\Type $idType1 = null)
     {
         $this->idType1 = $idType1;
 
@@ -80,7 +80,7 @@ class Typematrix
     /**
      * Get idType1
      *
-     * @return \AppBundle\Entity\Types
+     * @return \AppBundle\Entity\Type
      */
     public function getIdType1()
     {
@@ -90,11 +90,11 @@ class Typematrix
     /**
      * Set idType2
      *
-     * @param \AppBundle\Entity\Types $idType2
+     * @param \AppBundle\Entity\Type $idType2
      *
      * @return Typematrix
      */
-    public function setIdType2(\AppBundle\Entity\Types $idType2 = null)
+    public function setIdType2(\AppBundle\Entity\Type $idType2 = null)
     {
         $this->idType2 = $idType2;
 
@@ -104,7 +104,7 @@ class Typematrix
     /**
      * Get idType2
      *
-     * @return \AppBundle\Entity\Types
+     * @return \AppBundle\Entity\Type
      */
     public function getIdType2()
     {
