@@ -34,7 +34,7 @@ class Pokemontype
     /**
      * @var \AppBundle\Entity\Types
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Types")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Type")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_type", referencedColumnName="id")
      * })
