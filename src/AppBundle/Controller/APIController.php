@@ -27,10 +27,10 @@ class APIController extends FOSRestController
     public function getAllUser(): View
     {
         $routes = array(
-            "login" => "/user",
-            "pokemon" => "/pokemon",
-            "type" => "/type",
-            "attack" => "/attack"
+            "login" => "/user/",
+            "pokemon" => "/pokemon/",
+            "type" => "/type/",
+            "attack" => "/attack/"
         );
 
         $view = $this->view($routes, 200)->setFormat('json');
