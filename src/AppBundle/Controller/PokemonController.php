@@ -17,7 +17,7 @@ class PokemonController extends FOSRestController
     /**
      * @Route("/")
      *
-     * @Method("GET")
+     * @Method("POST")
      *
      * @return View
      */
@@ -26,6 +26,29 @@ class PokemonController extends FOSRestController
         $pokemons = $this->getDoctrine()->getRepository('AppBundle:Pokemon')->findAll();
 
         $view = $this->view($pokemons, 200)->setFormat('json');
+
+        return $view;
+    }
+
+    /**
+     * @Route("/{id}", requirements={
+     *     "id": "\d+"
+     * })
+     *
+     * @ParamConverter("pokemon", class="AppBundle:Pokemon")
+     *
+     * @Method("POST")
+     *
+     * @param Pokemon $pokemon
+     * @return View
+     */
+    public function getPokemon(Pokemon $pokemon): View
+    {
+        if (!$pokemon instanceof Pokemon) {
+            throw new NotFoundHttpException('No pokemon found');
+        }
+
+        $view = $this->view($pokemon, 200)->setFormat('json');
 
         return $view;
     }

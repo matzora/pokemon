@@ -17,13 +17,36 @@ class AttackController extends FOSRestController
     /**
      * @Route("/")
      *
-     * @Method("GET")
+     * @Method("POST")
      *
      * @return View
      */
-    public function getAllPokemons(): View
+    public function getAllAttacks(): View
     {
         $attack = $this->getDoctrine()->getRepository('AppBundle:Attack')->findAll();
+
+        $view = $this->view($attack, 200)->setFormat('json');
+
+        return $view;
+    }
+
+    /**
+     * @Route("/{id}", requirements={
+     *     "id": "\d+"
+     * })
+     *
+     * @ParamConverter("attack", class="AppBundle:Attack")
+     *
+     * @Method("POST")
+     *
+     * @param Attack $attack
+     * @return View
+     */
+    public function getAttack(Attack $attack): View
+    {
+        if (!$attack instanceof Attack) {
+            throw new NotFoundHttpException('No attack found');
+        }
 
         $view = $this->view($attack, 200)->setFormat('json');
 
