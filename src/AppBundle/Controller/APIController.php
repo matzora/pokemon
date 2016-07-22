@@ -27,7 +27,7 @@ class APIController extends FOSRestController
     public function getAllUser(): View
     {
         $routes = array(
-            "login" => "/user/",
+            //"login" => "/user/",
             "pokemon" => "/pokemon/",
             "type" => "/type/",
             "attack" => "/attack/"
