@@ -28,6 +28,18 @@ pokemon_api_area:
     defaults: {_format: json}
     prefix:   /api/area
 
+pokemon_api_trainer:
+    resource: "@AppBundle/Controller/TrainerController.php"
+    type:     annotation
+    defaults: {_format: json}
+    prefix:   /api/trainer
+
+pokemon_api_areatrainer:
+    resource: "@AppBundle/Controller/AreaTrainerController.php"
+    type:     annotation
+    defaults: {_format: json}
+    prefix:   /api/areatrainer
+
 pokemon_api_type:
     resource: "@AppBundle/Controller/TypeController.php"
     type:     annotation
