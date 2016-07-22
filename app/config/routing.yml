@@ -22,6 +22,12 @@ pokemon_api_attack:
     defaults: {_format: json}
     prefix:   /api/attack
 
+pokemon_api_area:
+    resource: "@AppBundle/Controller/AreaController.php"
+    type:     annotation
+    defaults: {_format: json}
+    prefix:   /api/area
+
 pokemon_api_type:
     resource: "@AppBundle/Controller/TypeController.php"
     type:     annotation
