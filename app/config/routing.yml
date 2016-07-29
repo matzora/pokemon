@@ -50,7 +50,7 @@ pokemon_api_typeMatrix:
     resource: "@AppBundle/Controller/TypeController.php"
     type:     annotation
     defaults: {_format: json}
-    prefix:   /api/type
+    prefix:   /api/typematrix
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
