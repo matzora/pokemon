@@ -52,5 +52,11 @@ pokemon_api_typeMatrix:
     defaults: {_format: json}
     prefix:   /api/typematrix
 
+pokemon_api_multiplicator:
+    resource: "@AppBundle/Controller/MultiplicatorController.php"
+    type:     annotation
+    defaults: {_format: json}
+    prefix:   /api/multiplicator
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
