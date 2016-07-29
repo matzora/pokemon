@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Type as Type;
+use AppBundle\Entity\TypeMatrix as TypeMatrix;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\View\View;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class TypeController extends FOSRestController
+class TypeMatrixController extends FOSRestController
 {
     /**
      * @Route("/")
@@ -21,11 +21,11 @@ class TypeController extends FOSRestController
      *
      * @return View
      */
-    public function getAllTypes(): View
+    public function getAllTypeMatrix(): View
     {
-        $types = $this->getDoctrine()->getRepository('AppBundle:Type')->findAll();
+        $typeMatrix = $this->getDoctrine()->getRepository('AppBundle:TypeMatrix')->findAll();
 
-        $view = $this->view($types, 200)->setFormat('json');
+        $view = $this->view($typeMatrix, 200)->setFormat('json');
 
         return $view;
     }
@@ -35,20 +35,20 @@ class TypeController extends FOSRestController
      *     "id": "\d+"
      * })
      *
-     * @ParamConverter("type", class="AppBundle:Type")
+     * @ParamConverter("typeMatrix", class="AppBundle:TypeMatrix")
      *
      * @Method("POST")
      *
-     * @param Type $type
+     * @param TypeMatrix $typeMatrix
      * @return View
      */
-    public function getType(Type $type): View
+    public function getTypeMatrix(TypeMatrix $typeMatrix): View
     {
-        if (!$type instanceof Type) {
-            throw new NotFoundHttpException('No type found');
+        if (!$typeMatrix instanceof TypeMatrix) {
+            throw new NotFoundHttpException('No typeMatrix found');
         }
 
-        $view = $this->view($type, 200)->setFormat('json');
+        $view = $this->view($typeMatrix, 200)->setFormat('json');
 
         return $view;
     }
