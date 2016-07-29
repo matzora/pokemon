@@ -30,7 +30,9 @@ class APIController extends FOSRestController
             //"login" => "/user/",
             "pokemon" => "/pokemon/",
             "type" => "/type/",
-            "attack" => "/attack/"
+            "attack" => "/attack/",
+            "typematrix" => "/typematrix/",
+            "multiplicator" => "/multiplicator/"
         );
 
         $view = $this->view($routes, 200)->setFormat('json');
