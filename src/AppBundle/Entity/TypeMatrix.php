@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Typematrix
+ * TypeMatrix
  *
  * @ORM\Table(name="typematrix", indexes={@ORM\Index(name="IDX_7C072AA42F67E8BC", columns={"id_type1"}), @ORM\Index(name="IDX_7C072AA4B66EB906", columns={"id_type2"}), @ORM\Index(name="IDX_7C072AA48CE51E5D", columns={"id_multiplicator"})})
  * @ORM\Entity
  */
-class Typematrix
+class TypeMatrix
 {
     /**
      * @var integer

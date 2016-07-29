@@ -47,7 +47,7 @@ pokemon_api_type:
     prefix:   /api/type
 
 pokemon_api_typeMatrix:
-    resource: "@AppBundle/Controller/TypeController.php"
+    resource: "@AppBundle/Controller/TypeMatrixController.php"
     type:     annotation
     defaults: {_format: json}
     prefix:   /api/typematrix
